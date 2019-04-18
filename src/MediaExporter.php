@@ -28,6 +28,11 @@ class MediaExporter
         return $this->media;
     }
 
+    public function getOriginalMedia()
+    {
+        return $this->media->getMedia();
+    }
+
     public function getFormat(): FormatInterface
     {
         return $this->format;
@@ -84,8 +89,8 @@ class MediaExporter
 
         return $this->media;
     }
-
-    public function saveOrigin(string $command, string $path): Media
+    
+    public function saveOrigin($command, string $path): Media
     {
         $disk = $this->getDisk();
         $file = $disk->newFile($path);

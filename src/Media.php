@@ -29,6 +29,11 @@ class Media
         return $this instanceof Frame;
     }
 
+    public function getMedia()
+    {
+        return $this->media;
+    }
+
     public function getFile(): File
     {
         return $this->file;
@@ -42,6 +47,11 @@ class Media
     public function getFirstStream()
     {
         return $this->media->getStreams()->first();
+    }
+
+    public function getStreams()
+    {
+        return $this->media->getStreams();
     }
 
     public function getDurationInMiliseconds(): float
