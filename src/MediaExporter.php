@@ -85,6 +85,28 @@ class MediaExporter
         return $this->media;
     }
 
+    public function saveOrigin(string $command, string $path): Media
+    {
+        $disk = $this->getDisk();
+        $file = $disk->newFile($path);
+
+        $destinationPath = $this->getDestinationPathForSaving($file);
+
+        $this->createDestinationPathForSaving($file);
+
+        $this->media->saveOrigin($command, $destinationPath);
+
+        if (!$disk->isLocal()) {
+            $this->moveSavedFileToRemoteDisk($destinationPath, $file);
+        }
+
+        if ($this->visibility !== null) {
+            $disk->setVisibility($path, $this->visibility);
+        }
+
+        return $this->media;
+    }
+
     protected function moveSavedFileToRemoteDisk($localSourcePath, File $fileOnRemoteDisk): bool
     {
         return $fileOnRemoteDisk->put($localSourcePath) && @unlink($localSourcePath);
