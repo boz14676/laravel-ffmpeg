@@ -1,5 +1,5 @@
 {
-    "name": "pbmedia/laravel-ffmpeg",
+    "name": "boz14676/laravel-ffmpeg",
     "description": "FFMpeg for Laravel",
     "keywords": [
         "pbmedia",
@@ -22,7 +22,7 @@
         "illuminate/log": "5.8.*",
         "illuminate/support": "5.8.*",
         "league/flysystem": "~1.0",
-        "php-ffmpeg/php-ffmpeg": "^0.13",
+        "boz14676/php-ffmpeg": "^0.14.0",
         "symfony/process": "~4.0"
     },
     "require-dev": {
