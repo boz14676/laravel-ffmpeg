@@ -10,7 +10,7 @@ use FFMpeg\Media\MediaTypeInterface;
 
 /**
  * @method mixed save(\FFMpeg\Format\FormatInterface $format, $outputPathfile)
- * @method mixed saveOrigin($command, $outputPathfile)
+ * @method mixed saveOrigin($command, $outputPathfile, $prfxCmd)
  */
 class Media
 {

@@ -89,8 +89,8 @@ class MediaExporter
 
         return $this->media;
     }
-    
-    public function saveOrigin($command, string $path): Media
+
+    public function saveOrigin($command, string $path, $prfxCmd = []): Media
     {
         $disk = $this->getDisk();
         $file = $disk->newFile($path);
@@ -99,7 +99,7 @@ class MediaExporter
 
         $this->createDestinationPathForSaving($file);
 
-        $this->media->saveOrigin($command, $destinationPath);
+        $this->media->saveOrigin($command, $destinationPath, $prfxCmd);
 
         if (!$disk->isLocal()) {
             $this->moveSavedFileToRemoteDisk($destinationPath, $file);
